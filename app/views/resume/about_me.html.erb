@@ -1,0 +1,28 @@
+<div class="animated zoomIn" id="aboutMe">
+	<h3><strong>About Me</strong></h3>
+	<br>
+	<%= image_tag("me.jpeg", :class => "img-responsive img-circle margin", :style => "display:inline", :alt => "home image", :width => 250, :height => 250) %>
+	<br><br>
+	<hr>
+	<div id="aboutMeDescription">
+		<p>
+			I am a Software Engineering Student at Carleton University who is passionate about learning to use new technologies. Alongside my course projects and assignments I have worked on my own projects to get myself started with web development. During my co-op terms I have learned and got myself up to date with various technologies. Take a look at the Projects section to know more about the work I have done.
+		</p>
+	</div>
+	<hr>
+	<h4><strong>Skills at a glance:</strong></h4>
+	<% @skills.each do |skill| %>
+		<% skill_names_array = [] %>
+		<% skill.skill_names.each do |skill_name| %>
+			<% skill_names_array.push(skill_name.name) %>
+		<% end %>
+		<ul style="list-style: none;">
+			<li>
+				<strong><%= skill.skill_type %></strong>: 
+				<%= skill_names_array.join(', ') %>
+			</li>
+		</ul>
+	<% end %>
+	<hr>
+	<br><br>
+</div>

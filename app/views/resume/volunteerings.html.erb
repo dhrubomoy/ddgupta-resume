@@ -1,0 +1,32 @@
+<div class="animated zoomIn" id="volunteerings">
+  <h2>Volunteer Experience</h2>
+  <br>
+  <ul class="nav nav-tabs">
+    <% (1..@volunteerings.length).each do |index| %>
+      <li class="<%= 'active' if index == 1 %>">
+        <a data-toggle="tab" href="#volunteering<%= index %>">
+          Volunteering <%= index %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <% @volunteerings.each do |volunteering| %>
+      <div id="volunteering<%= volunteering.id %>" class="tab-pane fade<%= ' in active' if volunteering.id == 1 %>">
+        <h3><%= volunteering.organization %></h3>
+        <h4><%= volunteering.position %></h4>
+        <p>
+          <%= volunteering.start_date %> <%= '-' if volunteering.start_date != nil && volunteering.end_date != nil %> <%= volunteering.end_date %> &nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;<%= volunteering.location %>
+        </p>
+        <ul>
+          <% volunteering.volunteering_descriptions.each do |description| %>
+            <li>
+              <%= description.sentence %>
+            </li> 
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  </head>
+
+  <body>
+  	<div class="animated fadeInDown">
+			<nav class="navbar navbar-default">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigationbar" aria-expanded="false" aria-controls="navbar">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <%= link_to 'ME', resume_about_me_path, class: 'navbar-brand', id: 'nav-brand-custom' %>
+			    </div>
+			    <div class="collapse navbar-collapse" id="navigationbar">
+			      <ul class="nav navbar-nav navbar-right">
+			        <li><%= link_to 'ABOUT ME', resume_about_me_path %></li>
+			        <li><%= link_to 'EXPERIENCES', resume_experiences_path %></li>
+			        <li><%= link_to 'PROJECTS', resume_projects_path %></li>
+			        <li><%= link_to 'VOLUNTEERING', resume_volunteerings_path %></li>
+			        <li><%= link_to 'CONNECT', resume_connect_path %></li>
+			      </ul>
+			    </div>
+			  </div>
+			</nav>
+		</div>
+		<div class="container">
+			<%= yield %>
+		</div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<div class="animated zoomIn" id="projects">
+  <h2>Projects</h2>
+  <br>
+  <ul class="nav nav-tabs">
+    <% (1..@projects.length).each do |index| %>
+      <li class="<%= 'active' if index == 1 %>">
+        <a data-toggle="tab" href="#project<%= index %>">
+          Project <%= index %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="tab-content">
+    <% @projects.each do |project| %>
+      <div id="project<%= project.id %>" class="tab-pane fade<%= ' in active' if project.id == 1 %>">
+        <h3><%= project.name %></h3>
+        <p>
+          <%= project.start_date %> <%= '-' if project.start_date != nil && project.end_date != nil %> <%= project.end_date %>
+        </p>
+        <ul>
+          <% project.project_descriptions.each do |description| %>
+            <li>
+              <%= description.sentence %>
+            </li> 
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
